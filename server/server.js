@@ -14,8 +14,8 @@ app.use(express.static(publicPath));
 app.get('/api/random-word', (req, res) => {
     const randomIndex = Math.floor(Math.random() * words.length);
     const randomWord = words[randomIndex];
-    console.log(randomWord.toString())
-    res.send(randomWord.toString());
+    console.log(randomWord)
+    res.send(randomWord);
 });
 
 

@@ -36,13 +36,18 @@ startGame()
 async function getNewWord() {
     try {
         const response = await fetch('http://localhost:3000/api/random-word');
-        console.log(response)
+
         if(!response.ok) {
+            throw new Error(`Error: ${response.status}`);
         }
-        const data = await response;
-        console.log('Random word:', data);
+        const word = await response.text();
+        console.log('Random word:', word);
+        return word;
+
+
     } catch (error) {
-        console.error('Failed to fetch random word:', error)
+        console.error('Failed to fetch random word:', error);
+        return null;
     }
 }
 
