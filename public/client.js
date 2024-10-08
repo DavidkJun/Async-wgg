@@ -96,6 +96,15 @@ function letterType(event) {
     })
 }
 
+function updateGuessPosition() {
+    if (curCol < columns) {
+        curCol++;
+    } else {
+        checkLetters(wordGuesses, curRow);
+        curRow++;
+        curCol = 1;
+    }
+}
 
 function updateGuess (letter, target) {
     wordGuesses[curRow].push(letter);
