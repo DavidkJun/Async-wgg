@@ -110,6 +110,16 @@ function updateGuess (letter, target) {
     wordGuesses[curRow].push(letter);
     target.innerText = letter;
 }
+function inputRegister(event) {
+    letterType(event)
+        .then(([letter, target]) => {
+            updateGuess(letter, target);
+            updateGuessPosition();
+        })
+        .catch(error => {
+            console.error(error)
+        });
+}
 
 function checkLetters(obj, curRow) {
     const startIndex = (curRow - 1) * columns + 1;
