@@ -66,7 +66,7 @@ const cells = document.getElementsByClassName('cell');
 for (const cell of cells) {
     cell.addEventListener("keyup", letterType);
 }
-
+/*
 function letterType(event) {
     const key = event.key.toUpperCase();
     if (key.length === 1 && key.match(/[A-Z]/i)) {
@@ -82,6 +82,7 @@ function letterType(event) {
         }
     }
 }
+*/
 
 function checkLetters(obj, curRow) {
     const startIndex = (curRow - 1) * columns + 1;
