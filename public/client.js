@@ -67,24 +67,6 @@ for (const cell of cells) {
     cell.addEventListener("keyup", letterType);
 }
 
-/*
-function letterType(event) {
-    const key = event.key.toUpperCase();
-    if (key.length === 1 && key.match(/[A-Z]/i)) {
-        wordGuesses[curRow].push(key);
-        event.target.innerText = key;
-
-        if (curCol < columns) {
-            curCol++;
-        } else {
-            checkLetters(wordGuesses, curRow);
-            curRow++;
-            curCol = 1;
-        }
-    }
-}
-*/
-
 function letterType(event) {
     const letter = event.key.toUpperCase();
     return new Promise((res, rej) => {
