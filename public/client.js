@@ -66,6 +66,7 @@ const cells = document.getElementsByClassName('cell');
 for (const cell of cells) {
     cell.addEventListener("keyup", letterType);
 }
+
 /*
 function letterType(event) {
     const key = event.key.toUpperCase();
@@ -83,13 +84,22 @@ function letterType(event) {
     }
 }
 */
+
 function letterType(event) {
-    const key = event.key.toUpperCase();
+    const letter = event.key.toUpperCase();
     return new Promise((res, rej) => {
-        if (key.length === 1 && key.match(/[A-Z]/i)) {
-            res(key)
+        if (letter.length === 1 && letter.match(/[A-Z]/i)) {
+            res([letter, event.target])
         }
     })
+        .then(([letter, target]) => {
+            updateGuess(letter, target)
+
+        })
+}
+function updateGuess (letter, target) {
+    wordGuesses[curRow].push(letter);
+    target.innerText = letter;
 }
 
 
