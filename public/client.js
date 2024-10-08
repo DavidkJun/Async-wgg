@@ -90,18 +90,17 @@ function letterType(event) {
     return new Promise((res, rej) => {
         if (letter.length === 1 && letter.match(/[A-Z]/i)) {
             res([letter, event.target])
+        } else {
+            rej('Invalid Letter')
         }
     })
-        .then(([letter, target]) => {
-            updateGuess(letter, target)
-
-        })
 }
+
+
 function updateGuess (letter, target) {
     wordGuesses[curRow].push(letter);
     target.innerText = letter;
 }
-
 
 function checkLetters(obj, curRow) {
     const startIndex = (curRow - 1) * columns + 1;
