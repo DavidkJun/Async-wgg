@@ -83,6 +83,15 @@ function letterType(event) {
     }
 }
 */
+function letterType(event) {
+    const key = event.key.toUpperCase();
+    return new Promise((res, rej) => {
+        if (key.length === 1 && key.match(/[A-Z]/i)) {
+            res(key)
+        }
+    })
+}
+
 
 function checkLetters(obj, curRow) {
     const startIndex = (curRow - 1) * columns + 1;
