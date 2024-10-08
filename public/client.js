@@ -64,7 +64,7 @@ async function createGameBoard() {
 const cells = document.getElementsByClassName('cell');
 
 for (const cell of cells) {
-    cell.addEventListener("keyup", letterType);
+    cell.addEventListener("keyup", inputRegister);
 }
 
 function letterType(event) {
