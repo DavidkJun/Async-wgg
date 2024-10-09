@@ -36,11 +36,12 @@ h1 {
     border: 1px solid #000;
     cursor: pointer;
     vertical-align: middle;
-    transition: background .1s;
+    transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .cell:hover {
-    background-color: #F1F1F1;
+    background-color: #f2f2f2;
+    transform: scale(1.05);
 }
 
 .cell.correct {
