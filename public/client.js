@@ -9,7 +9,6 @@ let keyWord;
 async function startGame() {
     document.getElementById('new-word-button').addEventListener('click', async () => {
         keyWord = await getNewWord();
-        alert(keyWord)
         resetGameBoard();
         resetGameState();
         createGameBoard();
@@ -43,7 +42,6 @@ async function getNewWord() {
         const word = await response.text();
         console.log('Random word:', word);
         return word;
-
 
     } catch (error) {
         console.error('Failed to fetch random word:', error);
