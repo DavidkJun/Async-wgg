@@ -15,9 +15,12 @@ body {
 }
 
 h1 {
-    margin-bottom: 60px;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    font-size: 36px;
+    color: #333;
 }
-
+/*
 #area {
     width: 351.4px;
     height: 420px;
@@ -25,7 +28,17 @@ h1 {
     margin: 0 auto;
     font-size: 0;
 }
+*/
 
+#area {
+    width: 351.4px;
+    height: 420px;
+    border: 1px solid #000;
+    font-size: 0;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
 .cell {
     width: 70px;
     height: 70px;
@@ -42,6 +55,7 @@ h1 {
 .cell:hover {
     background-color: #f2f2f2;
     transform: scale(1.05);
+    cursor: pointer;
 }
 
 .cell.correct {
@@ -56,4 +70,17 @@ h1 {
 .cell.none {
     background-color: grey;
     color: black;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
 }

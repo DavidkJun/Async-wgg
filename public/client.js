@@ -49,7 +49,7 @@ async function getNewWord() {
     }
 }
 
-async function createGameBoard() {
+function createGameBoard() {
     let cellIndex = 1;
     for (let row = 0; row < rows; row++) {
         for (let col = 0; col < columns; col++) {
@@ -100,7 +100,7 @@ function inputRegister(event) {
             console.error(error)
         });
 }
-
+/*
 function checkLetters(obj, curRow) {
     const startIndex = (curRow - 1) * columns + 1;
     let allCorrect = true;
@@ -122,6 +122,7 @@ function checkLetters(obj, curRow) {
         setTimeout(checkForWin, 1000);
     }
 }
+*/
 
 const checkForWin = () => {
     alert("You Won, Congratulations!!!");
