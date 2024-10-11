@@ -40,6 +40,7 @@ async function getNewWord() {
         if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
         }
+
         const word = await response.text();
         console.log('Random word:', word);
         return word;
@@ -109,11 +110,14 @@ function checkLetters(obj, curRow) {
     for (let i = 0; i < columns; i++) {
         const cell = document.getElementById(`cell_${startIndex + i}`);
         if (obj[curRow][i] === wordToCheck[i]) {
+
             cell.classList.add('correct');
         } else if (keyWord.includes(obj[curRow][i])) {
+
             cell.classList.add('partial');
             allCorrect = false;
         } else {
+
             cell.classList.add('none');
             allCorrect = false;
         }
