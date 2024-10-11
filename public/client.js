@@ -59,9 +59,17 @@ function createGameBoard() {
             cell.id = `cell_${cellIndex}`;
             cell.contentEditable = 'true';
             area.appendChild(cell);
-            cell.addEventListener('keyup', inputRegister);
+            cell.addEventListener('keyup', debounce(inputRegister, 200));
             cellIndex++;
         }
+    }
+}
+
+function debounce(func, delay) {
+    let timer;
+    return function (...args) {
+        clearTimeout(timer)
+        timer = setTimeout(() => func.apply(this, args), delay)
     }
 }
 
