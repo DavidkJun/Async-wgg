@@ -52,17 +52,32 @@ async function getNewWord() {
 
 function createGameBoard() {
     let cellIndex = 1;
-    for (let row = 0; row < rows; row++) {
-        for (let col = 0; col < columns; col++) {
+    for (let row = 1; row <= rows; row++) {
+        for (let col = 1; col <= columns; col++) {
             const cell = document.createElement('div');
             cell.classList.add('cell');
             cell.id = `cell_${cellIndex}`;
-            cell.contentEditable = 'true';
+            cell.dataset.row = row;
+
+            cell.contentEditable = (row === curRow) ? 'true' : 'false';
+
             area.appendChild(cell);
             cell.addEventListener('keyup', debounce(inputRegister, 200));
             cellIndex++;
         }
     }
+}
+
+function unlockNextRow() {
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
+        const cellRow = parseInt(cell.dataset.row);
+        if (cellRow === curRow) {
+            cell.contentEditable = 'true';
+        } else if (cellRow === curRow + 1) {
+            cell.contentEditable = 'false';
+        }
+    });
 }
 
 function debounce(func, delay) {
@@ -91,6 +106,7 @@ function updateGuessPosition() {
         checkLetters(wordGuesses, curRow);
         curRow++;
         curCol = 1;
+        unlockNextRow()
     }
 }
 
